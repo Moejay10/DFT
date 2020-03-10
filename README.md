@@ -7,4 +7,4 @@ This is the repository for the master work at the University of Oslo.
 
 ## Fall 2020
 
-## Spring 2020
+## Spring 2021
