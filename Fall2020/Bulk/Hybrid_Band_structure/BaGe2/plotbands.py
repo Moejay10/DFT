@@ -52,10 +52,10 @@ T = points['T']
 Z = points['Z']
 
 
-# Define path to be plotted. Has to be the same that was 
+# Define path to be plotted. Has to be the same that was
 # calculated by VASP (defined in KPOINTS)
 path = get_bandpath([G, Y, T, Z, G, X], atoms.cell, npoints=npoints)
-x2, X2, labels = path.get_linear_kpoint_axis() 
+x2, X2, labels = path.get_linear_kpoint_axis()
 labels = [label.replace('G','\Gamma') for label in labels]
 
 
@@ -64,7 +64,8 @@ nkpoints=int(npoints/(len(labels)-1))
 x1 = list(range(npoints))
 X1 = [x1[0]]+x1[nkpoints-1::nkpoints]
 
-xticks(X1, ['$%s$' % n for n in labels])
+
+#xticks(X1, ['$%s$' % n for n in labels])
 
 # Create plot
 for iband in range(nbands):
@@ -88,4 +89,3 @@ ylabel('$E - E_{Fermi}$ [eV]')
 savefig('BaGe2.png')
 
 #show()
-
