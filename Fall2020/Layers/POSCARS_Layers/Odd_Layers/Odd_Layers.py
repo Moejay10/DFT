@@ -63,8 +63,8 @@ with open(filename,"r") as f:
 with open(filename,"w") as f:
     for line in newline:
         f.writelines(line)
-
-for i in range(num_lines_to_delete):
+i = 0
+while i < num_lines_to_delete:
     line_to_delete = int(input("Type the line you want to delete: ")) - i + 8
     initial_line = 1
     file_lines = {}
@@ -84,6 +84,7 @@ for i in range(num_lines_to_delete):
     f.close()
     print('Deleted line: {}'.format(line_to_delete))
 
+    i += 1
 
 
 new_filename = input("Write the new filename here: ")
