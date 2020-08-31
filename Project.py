@@ -7,9 +7,9 @@ This is a temporary script file.
 from matplotlib.pyplot import *
 from numpy import *
 
-"""
+
 # Cohesive energy
-print("Cohesive energy \n")
+print("\nCohesive energy:\n")
 
 BaSi2 = [-114.566485, -122.507658, -110.810402, -97.448911, -101.371068, -100.145623]
 BaGe2 = [-104.17010734, -114.03012907, -100.08365249, -85.58778651, -88.08850118, -87.77319843]
@@ -29,62 +29,50 @@ N = 24 # number of atoms
 
 def Ecohesive(AB2, A, B2):
     for i in range(len(AB2)):
-        
+
         answ = (AB2[i] -(8*A[i] + 16*B2[i]))/N
-        
+
         if i ==0:
-            print ("DFT-D3")
-            print("%g" % answ)
-            
+            print ("DFT-D3: %g eV\n" % answ)
+
         elif i ==1:
-            print ("LDA")
-            print("%g" % answ)
-        
+            print ("LDA: %g eV\n" % answ)
+
         elif i ==2:
-            print ("PBE")
-            print("%g" % answ)
-        
+            print ("PBE: %g eV\n" % answ)
+
         elif i ==3:
-            print ("rev-vdW-DF2")
-            print("%g" % answ)
-        
+            print ("rew-vdW-DF2: %g eV\n" % answ)
+
         elif i ==4:
-            print ("vdW-DF-cx")
-            print("%g" % answ)
-        
+            print ("vdW-DF-cx: %g eV\n" % answ)
+
         elif i ==5:
-            print ("vdW-opt88")
-            print("%g" % answ)
+            print ("vdW-opt88: %g eV\n" % answ)
 
 
 def Ecohesive2(AB2, A, B, C):
     for i in range(len(AB2)):
-        
+
         answ = (AB2[i] -(8*A[i] + 8*B[i] + 8*C[i]))/N
-        
+
         if i ==0:
-            print ("DFT-D3")
-            print("%g" % answ)
-            
+            print ("DFT-D3: %g eV\n" % answ)
+
         elif i ==1:
-            print ("LDA")
-            print("%g" % answ)
-        
+            print ("LDA: %g eV\n" % answ)
+
         elif i ==2:
-            print ("PBE")
-            print("%g" % answ)
-        
+            print ("PBE: %g eV\n" % answ)
+
         elif i ==3:
-            print ("rev-vdW-DF2")
-            print("%g" % answ)
-        
+            print ("rew-vdW-DF2: %g eV\n" % answ)
+
         elif i ==4:
-            print ("vdW-DF-cx")
-            print("%g" % answ)
-        
+            print ("vdW-DF-cx: %g eV\n" % answ)
+
         elif i ==5:
-            print ("vdW-opt88")
-            print("%g" % answ)
+            print ("vdW-opt88: %g eV\n" % answ)
 
 
 print("BaSi2")
@@ -102,9 +90,9 @@ print("\n")
 print("SrSi2")
 Ecohesive(SrSi2, Sr, Si)
 print("\n")
-"""
 
-"""
+
+
 # Entalphy bonding energy
 
 basi2 = [-97.448911, -110.810402]
@@ -118,18 +106,19 @@ N_Ba_Si = 24 # Number of atoms
 N_Si = 16 # Number of atoms
 N_Ba = 8
 
+print("Entalphy bonding energy\n")
 def Hb(AB2, A, B2, Nb):
     for i in range(len(AB2)):
-        
+
         answ = (AB2[i] -(A[i] + B2[i]))/Nb
         if i ==0:
             print ("rev-vdW-DF2")
             print("%g" % answ)
-            
+
         elif i ==1:
             print ("PBE")
             print("%g" % answ)
-        
+
 Hb(basi2, ba, si, N_Ba_Si)
 
 
@@ -145,12 +134,12 @@ Hb_Ba = (ba[a] - 8*ba_1[a])/N_Ba
 print("\n")
 print("Hb Ba")
 print("%g" % Hb_Ba)
-"""
 
 
-"""
+
+
 # Entahlpy decomposition
-print("Entahlpy decomposition \n")
+print("\nEntahlpy decomposition \n")
 BaSi2 = -97.448911
 BaGe2 = -85.58778651
 BaSiC = -116.08448788
@@ -168,7 +157,7 @@ Hd2 = (BaGe2 - (4*Ba_bulk + 4*Ge_bulk))/24.
 
 Hd3 = (BaSiC - (4*Ba_bulk + Si_bulk + 2*C_bulk))/24.
 
-Hd4 = (SrSi2 - (2*Sr_bulk + 2*Si_bulk))/24. 
+Hd4 = (SrSi2 - (2*Sr_bulk + 2*Si_bulk))/24.
 
 print("BaSi2 - Hd")
 print("%g" % Hd1)
@@ -185,7 +174,7 @@ print("\n")
 print("SrSi2 - Hd")
 print("%g" % Hd4)
 print("\n")
-"""
+
 
 # Bulk modulus
 
@@ -196,11 +185,11 @@ SrSi2 = [570.0940, 779.1431, 682.0571, 244.1555, 246.1233, 273.3157]
 
 #B_0 = 1.0/9.0 *((C_11 + C_22 + C_33) + 2*(C_12 + C_23 + C_31))
 
+print ("Bulk Modulus\n")
 def Bulk_Modulus(A):
     B_0 = 1.0/9.0 *((A[0] + A[1] + A[2]) + 2*(A[3] + A[4] + A[5]))
-    print ("Bulk Modulus")
-    print("%g" % B_0)
-    
+    print("%g\n" % B_0)
+
 print("BaSi2")
 Bulk_Modulus(BaSi2)
 
