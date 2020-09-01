@@ -1,0 +1,20 @@
+#!/bin/sh -f
+
+if [ $# -lt 2 ]; then
+	echo 1>&2 Usage: $0 sourcedir targetdir
+	exit 127
+fi
+
+sourcedir=$1
+shift
+
+while [ $# -ge 1 ]; do
+    cp ${sourcedir}/INCAR   ${1}/INCAR
+    cp ${sourcedir}/KPOINTS ${1}/KPOINTS
+    cp ${sourcedir}/POSCAR  ${1}/POSCAR
+    cp ${sourcedir}/POTCAR  ${1}/POTCAR
+    cp ${sourcedir}/jobfile ${1}/jobfile
+    shift
+done
+
+exit 0

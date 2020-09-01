@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+# Print the potentials of a series of POTCAR (or OUTCAR) files
+
+from __future__ import division
+from __future__ import print_function
+
+import os, shutil, re, sys, string, math
+
+narg = len(sys.argv)
+
+if narg < 1:
+    print("Usage:", sys.argv[0], "file(s) (POTCAR/OUTCAR)")
+    sys.exit(1)
+
+for i in range(1,narg):
+    infilename  = sys.argv[i]
+    # Read input file:
+    ifile = open( infilename, 'r')  # r for reading
+    pot = [];
+    while 1:
+        maxforce = 0
+        line = ifile.readline()
+        if not line: break
+        if re.search(r'TITEL', line):
+            titel,eq,paw,element,date=line.split()
+            pot.append(element)    
+            pottxt = ' '.join(pot)
+    ifile.close()
+    print(infilename + ' ' + paw + '	' + pottxt)

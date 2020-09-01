@@ -1,0 +1,10 @@
+source /cluster/bin/jobsetup
+export FACILITY=ABEL
+export QUEUE_SYSTEM=SLURM
+export JOBID=$SLURM_JOB_ID
+export WORKDIR=$SCRATCH
+export SUBMITDIR=$SLURM_SUBMIT_DIR
+export VASPLOC=/usit/abel/u1/olem/fm4111/bin/vasp_std
+module purge
+module load intel/2017.4
+module load perf-reports

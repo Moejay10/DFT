@@ -1,0 +1,16 @@
+#!/bin/sh -f
+
+if [ $# -lt 2 ]; then
+	echo 1>&2 Usage: $0 sourcefile targetdirs
+	exit 127
+fi
+
+sourcefile=$1
+shift
+
+while [ $# -ge 1 ]; do
+    cp ${sourcefile}      ${1}/
+    shift
+done
+
+exit 0

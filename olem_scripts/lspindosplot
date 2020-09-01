@@ -1,0 +1,54 @@
+#!/bin/sh
+
+# split_dos must be performed first
+
+if [ $# -lt 1 ]; then
+	echo 1>&2 Usage: $0 atom_number[s]
+	exit 127
+fi
+
+split_dos
+
+while [ $# -ge 1 ]; do
+
+# Write to gnuplot file
+filename=ldosplot$1.gnuplot
+cat > $filename << EOF
+reset
+set terminal X11 enhanced font "arial,18"
+set style line 1 lt 1 lw 1.5 linecolor rgb "red"
+set style line 2 lt 2 lw 1.5 linecolor rgb "red"
+set style line 3 lt 3 lw 1.5 linecolor rgb "green"
+set style line 4 lt 1 lw 1.5 linecolor rgb "green"
+set style line 5 lt 2 lw 1.5 linecolor rgb "blue"
+set style line 6 lt 3 lw 1.5 linecolor rgb "blue"
+
+set xlabel "E - E_{Fermi} (eV)"
+set ylabel "DOS (states/atom*eV)"
+
+plot 'DOS$1' using 1:2 with lines ls 1 title "LDOS $1 s Up",\
+     'DOS$1' using 1:3 with lines ls 2 title "LDOS $1 s Down",\
+     'DOS$1' using 1:4 with lines ls 3 title "LDOS $1 p Up",\
+     'DOS$1' using 1:5 with lines ls 4 title "LDOS $1 p Down",\
+     'DOS$1' using 1:6 with lines ls 5 title "LDOS $1 d Up",\
+     'DOS$1' using 1:7 with lines ls 6 title "LDOS $1 d Down"
+pause -1
+
+# Uncomment to export eps file
+#set term post eps color enhanced
+#set output "LDOS$1.eps"
+#replot
+
+set term png
+set output "LDOS$1.png"
+replot
+
+EOF
+
+gnuplot -persist  $filename&
+
+shift
+
+done
+
+exit 0

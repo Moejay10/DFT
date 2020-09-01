@@ -1,0 +1,24 @@
+#!/bin/sh -f
+
+if [ $# -lt 2 ]; then
+	echo 1>&2 Usage: $0 [-pbe|pw91] targetdir atom1 ...
+	exit 127
+fi
+
+case $1 in
+    -pbe)    shift; potdir="paw";targetdir=$1; shift  ;;
+    -pw91)   shift; potdir="pot_gga_paw_pw91";targetdir=$1; shift  ;;
+    -lda)   shift; potdir="pot_lda_paw";targetdir=$1; shift  ;;
+    -*) echo 1>&2 Usage: $0 [-pbe|pw91|lda] targetdir atom1; exit 1 ;;
+    *) potdir="pot_gga_paw_pbe";targetdir=$1; shift ;;
+    esac
+
+cat /usit/abel/u1/olem/fm4111/potentials/${potdir}/${1}/POTCAR >  ${targetdir}/POTCAR
+shift
+
+while [ $# -ge 1 ]; do
+    cat /usit/abel/u1/olem/fm4111/potentials/${potdir}/${1}/POTCAR >>  ${targetdir}/POTCAR
+    shift
+done
+
+exit 0

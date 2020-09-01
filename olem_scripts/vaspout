@@ -1,0 +1,197 @@
+#!/usr/bin/env python
+#
+# Prints out main results from a VASP calculation
+#
+# Written by Ole Martin Lovvik, 2018-09-06
+# $LastChangedDate$
+# $Rev$
+#
+# Please send bugs to ole.martin.lovvik@sintef.no
+'''
+Usage: vaspout [options] [OUTCAR_file(s)]
+
+Parse OUTCAR file(s) and print results to output.
+If OUTCAR file is not specified, the default input
+file is "OUTCAR".
+
+Options:
+  -h, --help       Show this help message and exit
+'''
+import os, shutil, re, sys, string, math, getopt
+
+
+# Parse OUTCAR and print results to output
+def vasp_out(outcarfile="OUTCAR",selective=False):
+
+    inpath = os.path.dirname(outcarfile)
+
+    selective,x,y,z = parse_poscar(inpath+"/POSCAR")
+    
+    # Open OUTCAR file:
+    try:
+        ifile = open( outcarfile, 'r')
+    except IOError:
+        print("Error: OUTCAR File not found.                   "+outcarfile)
+        return()
+    # Initialize:
+    maxi = 0
+    maxpressure = -1
+    toten = -1
+    maxforce = -1
+    maxdrift = -1
+    # Parse OUTCAR file:
+    while 1:
+        efound = 0
+        line = ifile.readline()
+        # Total energy:
+        ematch = re.search('energy  without entropy= +(-*\d+.\d+) + energy\(sigma->0\) =  +(-*\d+.\d+)', line)
+        if ematch:
+            toten= float(ematch.group(2))
+            efound = 1
+        # Pressure:
+        elif re.search(r'external pressure', line): 
+            pressure = line.split()[3]
+            maxpressure = float(pressure)
+        # Max force:
+        elif re.search(r'TOTAL\-FORCE', line):
+            i=0
+            line = ifile.readline()
+            while 1:
+                line = ifile.readline()
+                if re.search(r'----', line):
+                    line = ifile.readline()
+                    a,b,driftx,drifty,driftz = line.split()
+                    if abs(float(driftx)) > maxdrift:
+                        maxdrift = abs(float(driftx))
+                    if abs(float(drifty)) > maxdrift:
+                        maxdrift = abs(float(drifty))
+                    if abs(float(driftz)) > maxdrift:
+                        maxdrift = abs(float(driftz))
+                    break
+                posx,posy,posz,forx,fory,forz = list(map(float, line.split()))
+                if selective:
+                    if (abs(forx) > maxforce) and (x[i] == 'T' or x[i] == 't'):
+                        maxforce = abs(forx)
+                        maxi = i
+                    if (abs(fory) > maxforce) and (y[i] == 'T' or y[i] == 't'):
+                        maxforce = abs(fory)
+                        maxi = i
+                    if (abs(forz) > maxforce) and (z[i] == 'T' or z[i] == 't'):
+                        maxforce = abs(forz)
+                        maxi = i
+                else:
+                    if abs(forx) > maxforce:
+                        maxforce = abs(forx)
+                        maxi = i
+                    if abs(fory) > maxforce:
+                        maxforce = abs(fory)
+                        maxi = i
+                    if abs(forz) > maxforce:
+                        maxforce = abs(forz)
+                        maxi = i
+                i = i+1
+        if efound:
+            print("%.4f\t%.4f\t%8.2f\t%8f\t%s" % (maxforce,maxdrift,maxpressure,toten,outcarfile))
+            maxforce = 0
+            maxdrift = 0
+        if not line:
+            if toten == -1:
+                print("Error: did not find the total energy.           "+outcarfile)
+            break
+
+
+# Parse POSCAR and return if it is selective. If so, 
+# return selective tag of each atom and direction (x, y, z).
+def parse_poscar(poscarname="POSCAR"):
+    try:
+        infile = open( poscarname, 'r')
+    except:
+        selective = False
+        x=None
+        y=None
+        z=None
+        return(selective,x,y,z)
+    commentline = infile.readline()
+    scaleline = infile.readline()
+    vec1line = infile.readline()
+    vec2line = infile.readline()
+    vec3line = infile.readline()
+    sixthline = infile.readline()  # Test for vasp5 syntax
+    try:
+        dummy = int(sixthline.split()[0])
+        atomnumberline = sixthline
+    except:
+        atomnumberline = infile.readline()
+    atomnumbers = list(map(int,atomnumberline.split()))
+    natoms = 0
+    for i in range(len(atomnumbers)):
+        natoms = natoms + atomnumbers[i]
+    seventhline = infile.readline()
+    
+    if seventhline[0] == 'S' or seventhline[0] == 's':
+        selective = True
+        seventhline = infile.readline()
+    else:
+        selective = False
+        x=None
+        y=None
+        z=None
+        return(selective,x,y,z)
+
+    x = []; y = []; z = []
+    
+    for i in range(natoms):
+        line = infile.readline()  # read a line
+        if not line: break
+        xyz = line.split()
+        x.append(xyz[3])
+        y.append(xyz[4])
+        z.append(xyz[5])
+
+    infile.close()
+    return(selective,x,y,z)
+
+
+# Read options and arguments, print header line    
+def main():
+    
+    global selective
+    global files
+
+    # Default values:
+    files=["OUTCAR"]
+    selective=False
+    
+    shopts = 'hs'
+    longopts = ['help', 'selective']
+
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], shopts, longopts)
+    except getopt.GetoptError as err:
+        # print help information and exit:
+        print('{0}: {1}'.format(sys.argv[0], str(err)))
+        print(__doc__)
+        sys.exit(2)
+
+    for o, a in opts:
+        if o in ('-h', '--help'):
+            # print help information and exit:
+            print(__doc__)
+            sys.exit()
+        elif o in ('-s', '--selective'):
+            selective=True
+        else:
+            assert False, 'unhandled option'
+            print('Error: option is not known')
+            sys.exit(2)
+
+    if len(args) > 1:
+        files = args
+
+    print("MxForce\tDrift\tPressure\tTOTEN   \tFilename")
+    for outcarfile in files:
+        vasp_out(outcarfile, selective=selective)
+        
+if __name__ == "__main__":
+
+    main()

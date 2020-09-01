@@ -1,0 +1,145 @@
+#!/usr/bin/env python
+#
+# Create KPOINTS file(s) with specified k-point density
+#
+# Written by Ole Martin Lovvik, 2018-09-06
+# $LastChangedDate$
+# $Rev$
+#
+# Please send bugs to ole.martin.lovvik@sintef.no
+'''
+Usage: makekpoints [options] [POSCAR_file|dir(s)]
+
+Creates KPOINTS file with specified k-point density.
+
+A file named POSCAR has to exist in the present directory,
+or it can be specified. It is also possible to specify one
+or more directories with existing POSCAR files.
+
+Options:
+  -h, --help       Show this help message and exit
+  -d, --density    Density of k-points in reciprocal AA
+  -k, --kdistance  Max distance between k points in rec AA
+  -o, --odd        Density of k-points, odd numbers
+  -e, --equal      Density of k-points, equal number of
+                   points (using the highest number)
+                   in all directions
+'''
+
+from __future__ import division
+from __future__ import print_function
+
+import os, shutil, re, sys, string, math
+
+narg = len(sys.argv)
+
+filelist = [];
+kfilelist = [];
+
+#default accuracy:
+kdens = 4
+kdist = 0.25
+odd_grid = False
+equal_numbers = False
+
+# read variables from the command line:
+if narg >= 2:
+    if  sys.argv[1] == "-h" or sys.argv[1] == "--help":
+        print(__doc__)
+        sys.exit()
+    if   sys.argv[1] == "-k" or sys.argv[1] == "--kdistance":
+        del sys.argv[1]; kdist = float(sys.argv[1]); del sys.argv[1]
+        ldist = 1
+        print("k used")
+    elif   sys.argv[1] == "-d" or sys.argv[1] == "--density":
+        del sys.argv[1]; kdens = float(sys.argv[1]); del sys.argv[1];
+    elif   sys.argv[1] == "-o" or sys.argv[1] == "--odd":
+        del sys.argv[1]; kdens = float(sys.argv[1]); odd_grid=True; del sys.argv[1];
+    elif   sys.argv[1] == "-e" or sys.argv[1] == "--equal":
+        del sys.argv[1]; kdens = float(sys.argv[1]); odd_grid=True; equal_numbers=True; del sys.argv[1];
+
+# If no file or directory is specified, use POSCAR:
+if len(sys.argv) == 1:
+    filelist.append("POSCAR")
+    kfilelist.append("KPOINTS")
+# Specify POSCAR file
+elif len(sys.argv) == 2:
+    if os.path.isfile(sys.argv[1]):
+        filelist.append(sys.argv[1])
+        kfilelist.append("KPOINTS")
+# Specify directory with POSCAR file
+    elif os.path.isdir(sys.argv[1]):
+        filelist.append(sys.argv[1] + "/POSCAR")
+        kfilelist.append(sys.argv[1] + "/KPOINTS")
+    else:
+        print("File not found")
+        sys.exit(1)
+else:
+# Specify directories with POSCAR files
+    for i in range(narg-1):
+        filelist.append(sys.argv[i+1] + "/POSCAR")
+        kfilelist.append(sys.argv[i+1] + "/KPOINTS")
+
+try:
+  ldist
+except NameError:
+    kdist=1/float(kdens)
+else:
+    pass
+
+
+for j in range(len(filelist)):
+
+    ######## Read POSCAR file(s)   ###########
+
+    infile = open(filelist[j], 'r')  # open file for reading 
+
+    commentline = infile.readline()
+    scaleline = infile.readline()
+    scale = float(scaleline)
+
+    vec1line = infile.readline()
+    vec2line = infile.readline()
+    vec3line = infile.readline()
+    vec1 = []; vec2 = []; vec3 = []
+    vec1 = list(map(float,vec1line.split()))
+    vec2 = list(map(float,vec2line.split()))
+    vec3 = list(map(float,vec3line.split()))
+
+    alength = scale*math.sqrt(vec1[0]*vec1[0] + vec1[1]*vec1[1] + vec1[2]*vec1[2])
+    blength = scale*math.sqrt(vec2[0]*vec2[0] + vec2[1]*vec2[1] + vec2[2]*vec2[2])
+    clength = scale*math.sqrt(vec3[0]*vec3[0] + vec3[1]*vec3[1] + vec3[2]*vec3[2])
+
+    alpha = math.acos((vec2[0]*vec3[0] + vec2[1]*vec3[1] + vec2[2]*vec3[2])/(blength*clength))*180/math.pi;
+    beta  = math.acos((vec1[0]*vec3[0] + vec1[1]*vec3[1] + vec1[2]*vec3[2])/(clength*alength))*180/math.pi;
+    gamma = math.acos((vec2[0]*vec1[0] + vec2[1]*vec1[1] + vec2[2]*vec1[2])/(alength*blength))*180/math.pi;
+
+    # Calculate required density of k-points
+    nkx = int(math.ceil(2*math.pi/(alength*kdist)))
+    if odd_grid and (nkx % 2 == 0):
+        nkx+=1
+    nky = int(math.ceil(2*math.pi/(blength*kdist)))
+    if odd_grid and (nky % 2 == 0):
+        nky+=1
+    nkz = int(math.ceil(2*math.pi/(clength*kdist)))
+    if odd_grid and (nkz % 2 == 0):
+        nkz+=1
+    if equal_numbers:
+        nkmax=max(nkx,nky,nkz)
+        nkx=nkmax
+        nky=nkmax
+        nkz=nkmax
+    nkxt = str(nkx)
+    nkyt = str(nky)
+    nkzt = str(nkz)
+    
+    # Print file(s)
+    kpointfile = open(kfilelist[j],'w')
+#    kpointfile.write("""Max k-point distance: %(kdist)f
+    kpointfile.write("""k-density: %(kdens).1f
+0
+Gamma
+ %(nkxt)s %(nkyt)s %(nkzt)s
+ 0  0  0
+""" % vars())
+    print("%(nkxt)s %(nkyt)s %(nkzt)s" % vars())

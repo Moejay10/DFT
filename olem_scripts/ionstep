@@ -1,0 +1,129 @@
+#!/usr/bin/env python
+
+# Find the maximum force in a vasp OUTCAR file
+
+from __future__ import division
+from __future__ import print_function
+
+import os, shutil, re, sys, string, math
+
+selectivefile = 1
+try:
+    infilename  = sys.argv[1]
+except:
+    # try block failed,
+    print("Usage:", sys.argv[0], "OUTCAR_file <POSCAR_file (with selective dynamics)>")
+    print(sys.argv[1])
+    sys.exit(1)
+try:
+    poscarname  = sys.argv[2]
+except:
+    # try block failed,
+    selectivefile = 0
+
+
+# Read POSCAR file:
+
+if selectivefile:
+        infile = open( poscarname, 'r')  # r for reading
+        commentline = infile.readline()
+        scaleline = infile.readline()
+        vec1line = infile.readline()
+        vec2line = infile.readline()
+        vec3line = infile.readline()
+        sixthline = infile.readline()  # Test for vasp5 syntax
+        try:
+            dummy = int(sixthline.split()[0])
+            atomnumberline = sixthline
+        except:
+            atomnumberline = infile.readline()
+        atomnumbers = list(map(int,atomnumberline.split()))
+        natoms = 0
+        for i in range(len(atomnumbers)):
+                natoms = natoms + atomnumbers[i]
+        seventhline = infile.readline()
+        
+        if seventhline[0] == 'S' or seventhline[0] == 's':
+                selective = 1
+                seventhline = infile.readline()
+        else:
+            print("Usage:", sys.argv[0], "OUTCAR_file <POSCAR_file (if selective dynamics)>")
+            exit(1)
+
+        x = []; y = []; z = []
+        
+        for i in range(natoms):
+                line = infile.readline()  # read a line
+                if not line: break
+                xyz = line.split()
+                x.append(xyz[3])
+                y.append(xyz[4])
+                z.append(xyz[5])
+
+        infile.close()
+else:
+        print("Warning: No POSCAR specified. Is the relaxation selective?")
+
+print("MxForce\tAtom #\tPressure\tDrift\tTOTEN")
+# Read OUTCAR file:
+ifile = open( infilename, 'r')  # r for reading
+
+maxi = 0
+maxpressure = -1
+toten = -1
+maxforce = -1
+maxdrift = -1
+while 1:
+    efound = 0
+    line = ifile.readline()
+    ematch = re.search('energy  without entropy= +(-*\d+.\d+) + energy\(sigma->0\) =  +(-*\d+.\d+)', line)
+    if ematch:
+        toten= float(ematch.group(2))
+        efound = 1
+    elif re.search(r'external pressure', line): 
+        tmp,tmp,tmp,pressure,tmp,tmp,tmp,tmp,tmp,tmp = line.split() 
+        maxpressure = float(pressure)
+    elif re.search(r'TOTAL\-FORCE', line):
+        i=0
+        line = ifile.readline()
+        while 1:
+            line = ifile.readline()
+            if re.search(r'----', line):
+                line = ifile.readline()
+                a,b,driftx,drifty,driftz = line.split()
+                if abs(float(driftx)) > maxdrift:
+                    maxdrift = abs(float(driftx))
+                if abs(float(drifty)) > maxdrift:
+                    maxdrift = abs(float(drifty))
+                if abs(float(driftz)) > maxdrift:
+                    maxdrift = abs(float(driftz))
+                break
+            posx,posy,posz,forx,fory,forz = list(map(float, line.split()))
+            if selectivefile:
+                    if (abs(forx) > maxforce) and (x[i] == 'T' or x[i] == 't'):
+                        maxforce = abs(forx)
+                        maxi = i
+                    if (abs(fory) > maxforce) and (y[i] == 'T' or y[i] == 't'):
+                        maxforce = abs(fory)
+                        maxi = i
+                    if (abs(forz) > maxforce) and (z[i] == 'T' or z[i] == 't'):
+                        maxforce = abs(forz)
+                        maxi = i
+            else:
+                    if abs(forx) > maxforce:
+                        maxforce = abs(forx)
+                        maxi = i
+                    if abs(fory) > maxforce:
+                        maxforce = abs(fory)
+                        maxi = i
+                    if abs(forz) > maxforce:
+                        maxforce = abs(forz)
+                        maxi = i
+            i = i+1
+    if efound:
+        print("%.3f\t%d\t%7f\t%.3f\t%f" % (maxforce,maxi+1,maxpressure,maxdrift,toten))
+#        print(" " + str(maxforce) +"   \t" + str(maxi+1) +"   \t" + str(maxpressure)+"   \t" + str(maxdrift) + "   \t" + str(toten))
+        maxforce = 0
+        maxdrift = 0
+    if not line:
+        break

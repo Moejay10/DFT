@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# split_dos must be performed before this script!
+
+if ! [ -f DOS0 ];
+then
+    split_dos
+fi
+
+cp ~olem/fm4111/bin/dosplot.gnuplot .
+
+gnuplot dosplot.gnuplot
+

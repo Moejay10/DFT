@@ -1,0 +1,18 @@
+source /cluster/bin/jobsetup
+FACILITY=ABEL
+QUEUE_SYSTEM=SLURM
+JOBID=$SLURM_JOB_ID
+WORKDIR=$SCRATCH
+SUBMITDIR=$SLURM_SUBMIT_DIR
+VASPLOC=/usit/abel/u1/espenfl/vasp/bin/vasp
+WANNIERLOC=/usit/abel/u1/espenfl/vasp/bin/wannier
+module purge
+module load intel/2017.4
+module load perf-reports
+export MPIEXEC_LOCAL=mpirun
+export VASPLOC
+export SUBMITDIR
+export WORKDIR
+export JOBID
+export QUEUE_SYSTEM
+export FACILITY

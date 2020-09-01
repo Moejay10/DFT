@@ -1,0 +1,199 @@
+#!/bin/env python
+#
+# Find the band gap from a vasp OUTCAR file
+# Written by Ole Martin Lovvik, 2018-09-06
+# $LastChangedDate$
+# $Rev$
+#
+# Please send bugs to ole.martin.lovvik@sintef.no
+'''
+Usage: bandgap [options] OUTCAR_FILE[S]
+
+Reports the band gap of one or more VASP calculations.
+It is defined as the CBM - VBM, where the
+VBM is defined by the Fermi level from VASP.
+If the band gap is zero, the overlap between 
+VBM and CBM is thus shown as a negative number.
+
+Options:
+  -h, --help              Show this help message and exit
+  -v VM, --valencemax VM  Reports the gap (positive) or overlap (negative) between
+                          band number VM and VM+1.
+'''
+
+from __future__ import division
+from __future__ import print_function
+
+import os, shutil, re, sys, string, math
+import getopt
+
+
+def band_gap(valencemax=None,filename=["OUTCAR"]):
+
+    if valencemax==None:
+        fermisearch = 1
+    else:
+        fermisearch = 0
+
+    # Initialize:
+    valencemaxenergy=-100
+    conductionminenergy=100
+
+    # Open input file:
+    try:
+        ifile = open( filename, 'r')  # r for reading
+    except IOError:
+        print("Error: File does not appear to exist.           "+filename)
+        return()
+
+    # Find the Fermi energy:
+    nkpoints, fermienergy = find_fermi(ifile)
+    # Position in ifile: E-fermi : ...
+
+    if fermienergy == None:
+        print("Error: did not find the Fermi energy.           "+filename)
+        return()
+
+    # Find the highest occupied orbital (valencemax) if not already specified:
+    if valencemax==None:
+        nk, valenceocc, conductionocc,valencemax = find_valencemax(ifile,fermienergy)
+    else:
+        nk = 0
+        valenceocc = 0
+        conductionocc = 0
+
+    
+    # Move to correct position in OUTCAR:
+    ifile.seek(0)
+    while 1:
+        line = ifile.readline()
+        if re.search('E-fermi :', line):
+            break
+    # Search for the highest energy of the valence band (valencemaxenergy) 
+    # and the lowest energy of the conduction band (conductionminenergy):
+    searchstring='^ +' + str(int(valencemax)) + '  '
+    while nk < nkpoints + 1:
+        line = ifile.readline()
+        if re.search(searchstring, line):
+            no,valenceenergy,occ = list(map(float, line.split()))
+            nk = nk + 1
+            valenceocc = valenceocc + occ
+            if valenceenergy>valencemaxenergy:
+                    valencemaxenergy=valenceenergy
+            line = ifile.readline()
+            no,conductionenergy,occ = list(map(float, line.split()))
+            conductionocc = conductionocc + occ
+            if conductionenergy<conductionminenergy:
+                    conductionminenergy=conductionenergy
+        if not line:
+            break
+
+    # print results:
+    bandgap = conductionminenergy - valencemaxenergy
+    valenceocc = valenceocc/nk
+    conductionocc = conductionocc/nk
+    print("%8.4f %4d %8.4f %8.4f %7.2f %7.2f %s" % (bandgap, valencemax, valencemaxenergy, conductionminenergy, valenceocc, conductionocc, filename))
+
+
+# Find Fermi energy:
+
+def find_fermi(ifile):
+    # Find Fermi energy:
+    while 1:
+       line = ifile.readline()
+       if re.search('irreducible', line):
+            a,points,b = line.split(None,2)
+            nkpoints = int(points)
+       if re.search('1st', line):
+            a,points,b = line.split(None,2)
+            nkpoints = int(points)
+       elif re.search('electrostatic', line): # Go to self-consistent band structure
+           break
+       elif not line:
+            return(None,None)
+    while 1:
+       line = ifile.readline()
+       if re.search('E-fermi', line):
+            a,b,energy,c = line.split(None,3)
+            fermienergy=float(energy)
+            return(nkpoints, fermienergy)
+       elif not line:
+           return(None,None)
+
+
+# Find valence band maximum:
+
+def find_valencemax(ifile,fermienergy):
+
+    nklist=[]
+    nkn=0
+    while 1:
+        line = ifile.readline()
+        if re.search('k-point ', line):
+            nklist.append(line.split()[-3:])
+            nkn+=1
+            #print(nkn)
+        if re.search('band No.', line):
+            break
+    while 1:
+        line = ifile.readline()
+        no,valenceenergy,occ = list(map(float, line.split()))
+        if valenceenergy>fermienergy:
+            valencemax = no-1
+            conductionminenergy = valenceenergy
+            conductionocc = occ
+            nk = 1
+            break
+        valencemaxenergy = valenceenergy
+        valenceocc = occ
+        if not line:
+            print("Error: did not find the highest valence band")
+            return(None,None,None,None)
+    return(nk,valenceocc,conductionocc,valencemax)
+
+
+def main():
+    
+    global valencemax
+    global files
+
+    # Default values:
+    files=["OUTCAR"]
+    valencemax=None
+    
+    shopts = 'hv'
+    longopts = ['help', 'valencemax']
+
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], shopts, longopts)
+    except getopt.GetoptError as err:
+        # print help information and exit:
+        print('{0}: {1}'.format(sys.argv[0], str(err)))
+        print(__doc__)
+        sys.exit(2)
+
+    for o, a in opts:
+        if o in ('-h', '--help'):
+            # print help information and exit:
+            print(__doc__)
+            sys.exit()
+        elif o in ('-v', '--valencemax'):
+            valencemax = int(args[0])
+            del args[0]
+        else:
+            assert False, 'unhandled option'
+            print('Error: option is not known')
+            sys.exit(2)
+
+    if len(args) > 0:
+        files = args
+    
+    print("Gap\tBand#\tVBM\tCBM\tVBM-occ\tCBM-occ\tFile")
+    for filename in files:
+        band_gap(valencemax=valencemax,filename=filename)
+        
+if __name__ == "__main__":
+    col_width = {'col1' : 18, 'col2' : 13, 'col3' : 17}
+    rows_proj = ['Gap', 'Band#', 'VBM', 'CBM', 'VBM-occ', 'CBM-occ']
+
+    main()
