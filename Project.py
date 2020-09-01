@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
 from matplotlib.pyplot import *
 from numpy import *
 
@@ -99,8 +93,8 @@ basi2 = [-97.448911, -110.810402]
 
 ba = [-1.82065575, -12.28668927]
 si = [-52.30009236, -57.49310413]
-si_1 = [0.28888477, -0.01545810]
-ba_1 = [1.28100863, -0.04124352]
+si_atom = [0.28888477, -0.01545810]
+ba_atom = [1.28100863, -0.04124352]
 
 N_Ba_Si = 24 # Number of atoms
 N_Si = 16 # Number of atoms
@@ -112,25 +106,23 @@ def Hb(AB2, A, B2, Nb):
 
         answ = (AB2[i] -(A[i] + B2[i]))/Nb
         if i ==0:
-            print ("rev-vdW-DF2")
-            print("%g" % answ)
+            print ("rew-vdW-DF2: %g eV\n" % answ)
 
         elif i ==1:
-            print ("PBE")
-            print("%g" % answ)
+            print ("PBE: %g eV\n" % answ)
 
 Hb(basi2, ba, si, N_Ba_Si)
 
 
 a = 1
-Hb_Si = (si[a] - 16*si_1[a])/N_Si
+Hb_Si = (si[a] - 16*si_atom[a])/N_Si
 print("\n")
 print("Hb Si")
 print("%g" % Hb_Si)
 
 
 
-Hb_Ba = (ba[a] - 8*ba_1[a])/N_Ba
+Hb_Ba = (ba[a] - 8*ba_atom[a])/N_Ba
 print("\n")
 print("Hb Ba")
 print("%g" % Hb_Ba)
