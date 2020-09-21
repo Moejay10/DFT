@@ -9,11 +9,11 @@ NOTE: POSCAR-4L does not work
 
 
 layer = input("Write which layer here: ")
-filename = "POSCAR-" + layer + "L"
+filename = "POSCAR_"  + layer + "L"
 num_lines_to_delete = 12
 
 
-N_list1 = filename.strip().split("-")
+N_list1 = filename.strip().split("_")
 N_list2 = N_list1[1].strip().split("L")
 N = int(N_list2[0])
 
@@ -100,6 +100,6 @@ while i < num_lines_to_delete:
     i += 1
 
 new_layer = int(layer) - 1
-new_filename = "POSCAR-" + str(new_layer) + "L"
+new_filename = "POSCAR_" + "L" + str(new_layer)
 
 os.rename(filename, new_filename)
