@@ -78,7 +78,7 @@ for i in range(1, num_files + 1):
             e = (pieces[4])
             f = (pieces[5])
 
-            a += 0.05*i
+            a += 0.5*i
             a = float("{:.10f}".format(a))
 
             lines_read[j] = "     " + str(a) + "         " + b + "         " + c + " " + d + " " + e + " " + f + "\n"
