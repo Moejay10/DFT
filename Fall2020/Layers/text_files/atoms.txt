@@ -1,0 +1,5 @@
+Total energy (eV)	F	E0
+Atoms/2D/ba_atoms/Etot/OUTCAR	-1.67641841	-1.67641841
+Atoms/2D/si_cluster/Etot/OUTCAR	-35.03031037	-35.03031037
+Atoms/3D/ba_atoms/Etot/OUTCAR	-1.67641841	-1.67641841
+Atoms/3D/si_cluster/Etot/OUTCAR	-35.03031037	-35.03031037

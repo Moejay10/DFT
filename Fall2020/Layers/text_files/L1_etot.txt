@@ -1,0 +1,3 @@
+Total energy (eV)	F	E0
+L1/Etot_4/OUTCAR	-44.46074579	-44.46074579
+L1/Etot_unrelaxed/OUTCAR	-41.27655062	-41.27655062
