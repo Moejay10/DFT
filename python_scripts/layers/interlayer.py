@@ -36,56 +36,23 @@ def lldistance(thisdir):
         etot.pop(1)
         etot.append(temp)
         if files == filename[0]:
-            etot_0 = np.array(etot)
+            pbe = np.array(etot)
 
         elif files == filename[1]:
-            etot_1 = np.array(etot)
+            dft_d3 = np.array(etot)
 
         elif files == filename[2]:
-            etot_2 = np.array(etot)
+            lda = np.array(etot)
 
         elif files == filename[3]:
-            etot_3 = np.array(etot)
+            rev = np.array(etot)
 
         else:
-            etot_4 = np.array(etot)
+            vdw = np.array(etot)
 
 
 
-    return etot_0, etot_1, etot_2, etot_3, etot_4
+    return pbe, dft_d3, lda, rev, vdw
 
 
-def plotlldistance(etot_0, etot_1, etot_2, etot_3, etot_4):
-    
-    x = np.linspace(0.0, 5.0, 11)
-    n = 24
-
-    plt.plot(x, etot_0/n, "-or")
-    plt.plot(x, etot_1/n, "-ob")
-    plt.plot(x, etot_2/n, "-og")
-    plt.plot(x, etot_3/n, "-oy")
-    plt.plot(x, etot_4/n, "-o")
-    plt.legend(["PBE", "DFT_D3", "LDA", "rev_vdw", "vdw_opt88"])
-    plt.title("All functionals")
-    plt.xlabel("Interlayer space [Å]")
-    plt.ylabel("Energy/atom [meV]")
-    plt.show()
-
-    plt.plot(x, etot_0/n, "-or")
-    plt.plot(x, etot_1/n, "-og")
-    plt.plot(x, etot_3/n, "-oy")
-    plt.plot(x, etot_4/n, "-o")
-    plt.legend(["PBE", "DFT_D3", "rev_vdw", "vdw_opt88.txt"])
-    plt.title("All functionals except LDA")
-    plt.xlabel("Interlayer space [Å]")
-    plt.ylabel("Energy/atom [meV]")
-    plt.show()
-
-
-    plt.plot(x, etot_2/n, "-ob")
-    plt.legend(["LDA"])
-    plt.title("LDA functional")
-    plt.xlabel("Interlayer space [Å]")
-    plt.ylabel("Energy/atom [meV]")
-    plt.show()
 
