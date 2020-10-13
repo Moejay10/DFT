@@ -1,0 +1,9 @@
+Total energy (eV)	F	E0
+BaSi2/Cutofftest/ktest/k_density2/OUTCAR	-110.54218659	-110.54218659
+BaSi2/Cutofftest/ktest/k_density3/OUTCAR	-110.66412275	-110.66412275
+BaSi2/Cutofftest/ktest/k_density4/OUTCAR	-110.65198108	-110.65198108
+BaSi2/Cutofftest/ktest/k_density5/OUTCAR	-110.64944260	-110.64944260
+BaSi2/Cutofftest/ktest/k_density6/OUTCAR	-110.64996278	-110.64996278
+BaSi2/Cutofftest/ktest/k_density7/OUTCAR	-110.64991119	-110.64991119
+BaSi2/Cutofftest/ktest/k_density8/OUTCAR	-110.64991465	-110.64991465
+BaSi2/Cutofftest/ktest/k_density9/OUTCAR	-110.64991418	-110.64991418
