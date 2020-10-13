@@ -1,0 +1,12 @@
+Total energy (eV)	F	E0
+Convergency_tests/1L/Vacuum_Thickness/Vactest=0/OUTCAR	-30.84337456	-30.84264474
+Convergency_tests/1L/Vacuum_Thickness/Vactest=10/OUTCAR	-32.52389249	-32.52389249
+Convergency_tests/1L/Vacuum_Thickness/Vactest=1/OUTCAR	-34.72051484	-34.72051484
+Convergency_tests/1L/Vacuum_Thickness/Vactest=2/OUTCAR	-33.14940468	-33.14940468
+Convergency_tests/1L/Vacuum_Thickness/Vactest=3/OUTCAR	-32.69751100	-32.69751100
+Convergency_tests/1L/Vacuum_Thickness/Vactest=4/OUTCAR	-32.57604659	-32.57604659
+Convergency_tests/1L/Vacuum_Thickness/Vactest=5/OUTCAR	-32.54259333	-32.54259333
+Convergency_tests/1L/Vacuum_Thickness/Vactest=6/OUTCAR	-32.53141442	-32.53141442
+Convergency_tests/1L/Vacuum_Thickness/Vactest=7/OUTCAR	-32.52767668	-32.52767668
+Convergency_tests/1L/Vacuum_Thickness/Vactest=8/OUTCAR	-32.52493513	-32.52493513
+Convergency_tests/1L/Vacuum_Thickness/Vactest=9/OUTCAR	-32.52386472	-32.52386472

@@ -1,0 +1,8 @@
+Total energy (eV)	F	E0
+Convergency_tests/2L/k_points/k_density3/OUTCAR	-72.42781707	-72.42781707
+Convergency_tests/2L/k_points/k_density4/OUTCAR	-72.41521274	-72.41521274
+Convergency_tests/2L/k_points/k_density5/OUTCAR	-72.41811084	-72.41811084
+Convergency_tests/2L/k_points/k_density6/OUTCAR	-72.41799716	-72.41799716
+Convergency_tests/2L/k_points/k_density7/OUTCAR	-72.41804871	-72.41804871
+Convergency_tests/2L/k_points/k_density8/OUTCAR	-72.41803696	-72.41803696
+Convergency_tests/2L/k_points/k_density9/OUTCAR	-72.41803847	-72.41803847
