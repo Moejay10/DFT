@@ -1,0 +1,4 @@
+Total energy (eV)	F	E0
+Atom/Silicon/atom/Etot/OUTCAR	0.28888477	0.28888477
+Atom/Silicon/cluster/Etot/OUTCAR	-12.04336942	-12.04336942
+Atom/Silicon/crystal/Etot/OUTCAR	-41.34854212	-41.34854212

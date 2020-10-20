@@ -1,0 +1,2 @@
+Total energy (eV)	F	E0
+Atom/Carbon/atom/Etot/OUTCAR	0.14417636	0.14417636

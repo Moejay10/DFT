@@ -1,0 +1,3 @@
+Total energy (eV)	F	E0
+Atom/Barium/atom/Etot/OUTCAR	1.28100863	1.28100863
+Atom/Barium/crystal/Etot/OUTCAR	-1.35503353	-1.35741360
