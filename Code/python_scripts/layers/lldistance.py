@@ -23,17 +23,28 @@ def main():
 
     args = parser.parse_args()
 
-    src = str(walk_up_folder(os.getcwd(), 4)) + "/Data/Layer/L_L_distance/" + args.input + "/POSCARS/"
-
-    dst = src + args.output
-
-    if not os.path.isdir(dst):
-        os.makedirs(dst)
-    
+    src = str(walk_up_folder(os.getcwd(), 4)) + "/Data/Layer/L_L_distance/" + args.input + "/POSCARS/" 
     
     if args.input == 'BaSi2':
-        basi2(src, dst, args.scale)
+        folders = ["/DFT-D3/", "/PBE/", "/LDA/", "/rev-vdW-DF2/", "/vdW-opt88/"]
+        dst = src + "outputFiles/" + args.output 
+        src = src + "inputFiles/"
+        
+        for folder in folders:
+            src1 = src + folder
+            dst1 = dst + folder
+            
+            if not os.path.isdir(dst1):
+                os.makedirs(dst1)
+
+            basi2(src1, dst1, args.scale)
+
     else:
+        dst = src + args.output
+
+        if not os.path.isdir(dst):
+            os.makedirs(dst)
+        
         graphite(src, dst, args.scale)
     
 
@@ -82,7 +93,7 @@ def basi2(src, dst, scale):
             print("Unexpected error:", sys.exc_info())
             exit(1)
 
-        print("\nFile copy done!\n")
+        #print("\nFile copy done!\n")
 
         """
         while True:
