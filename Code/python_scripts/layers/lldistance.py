@@ -162,7 +162,33 @@ def graphite(src, dst, scale):
             print("Unexpected error:", sys.exc_info())
             exit(1)
 
-        print("\nFile copy done!\n")
+        #print("\nFile copy done!\n")
+        
+        c = 0
+        with open(new_file) as file:
+            lines = file.readlines()
+            #Skip the first two lines
+            for j in range(4,5):
+                line = lines[j]
+                pieces = line.split()
+                a = pieces[2]
+                c = float(pieces[2]) + scale*i
+
+            c = float("{:.10f}".format(c))
+            c = str(c)
+        
+        
+        with open(new_file,"r") as f:
+            newline=[]
+            for word in f.readlines():
+                newline.append(word.replace(a,c))
+
+
+        with open(new_file,"w") as f:
+            for line in newline:
+                f.writelines(line)
+
+        
 
         the_file = open(new_file, "r")
         lines_read = the_file.readlines()
