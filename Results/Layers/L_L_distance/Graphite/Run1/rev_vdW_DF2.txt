@@ -1,0 +1,11 @@
+Total energy (eV)	F	E0
+rev-vdW-DF2/Graphite/a_10/Etot/OUTCAR	-36.34159738	-36.34156193
+rev-vdW-DF2/Graphite/a_1/Etot/OUTCAR	-36.35524235	-36.35519419
+rev-vdW-DF2/Graphite/a_2/Etot/OUTCAR	-36.35484048	-36.35479350
+rev-vdW-DF2/Graphite/a_3/Etot/OUTCAR	-36.35456628	-36.35452065
+rev-vdW-DF2/Graphite/a_4/Etot/OUTCAR	-36.35353164	-36.35348736
+rev-vdW-DF2/Graphite/a_5/Etot/OUTCAR	-36.35231034	-36.35226750
+rev-vdW-DF2/Graphite/a_6/Etot/OUTCAR	-36.35082556	-36.35078423
+rev-vdW-DF2/Graphite/a_7/Etot/OUTCAR	-36.34908446	-36.34904468
+rev-vdW-DF2/Graphite/a_8/Etot/OUTCAR	-36.34681208	-36.34677383
+rev-vdW-DF2/Graphite/a_9/Etot/OUTCAR	-36.34428589	-36.34424913
