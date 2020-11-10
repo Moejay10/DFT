@@ -107,6 +107,8 @@ def find_fermi(ifile):
        if re.search('1st', line):
             a,points,b = line.split(None,2)
             nkpoints = int(points)
+       if re.search('k-points in BZ', line):
+            nkpoints = int(line.split(None,12)[9])
        elif re.search('electrostatic', line): # Go to self-consistent band structure
            break
        elif not line:
