@@ -1,5 +1,7 @@
 Gap	Band#	VBM	CBM	VBM-occ	CBM-occ	File
   0.6761   72   3.5753   4.2514    2.00    0.00 Bulk/Band_structure/OUTCAR
+  1.6297   36  -2.0995  -0.4698    2.00    0.00 L1/Band_structure/reconstructed/OUTCAR
+  0.6861   36  -1.6315  -0.9454    2.00    0.00 L1/Band_structure/unrelaxed/OUTCAR
   0.8681   72  -0.8320   0.0361    2.00    0.00 L2/Band_structure/OUTCAR
   0.9261  108  -0.2813   0.6448    2.00    0.00 L3/Band_structure/OUTCAR
   0.8853  144   0.2387   1.1240    2.00    0.00 L4/Band_structure/OUTCAR
