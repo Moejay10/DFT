@@ -1,4 +1,4 @@
-#!/bin/ksh
+#!/bin/bash
 
 
 # Script to break the VASP DOSCAR file into segments for
