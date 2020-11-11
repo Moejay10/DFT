@@ -17,19 +17,20 @@
 # Executables reside here
 #BIN=~/bin
 # GH: replace this so that it looks for vp in the same directory as this script
-EXE=$0
-BIN=${EXE%/*}
+src=$1
+BIN=${src%/*}
 
-if [ $# -ne 0 ]; then
-	echo "Usage: split_dos"
+
+if [ $# -ne 1 ]; then
+	echo "Usage: split_dos src"
 	exit 2
 fi
 
 # Script to split the DOSCAR file into the atomic
 # projections labeled by atom number
-dosfile=DOSCAR
-outfile=OUTCAR
-infile=INCAR
+dosfile=$src/DOSCAR
+outfile=$src/OUTCAR
+infile=$src/INCAR
 
 
 # Token for splitting the files
@@ -102,8 +103,8 @@ fi
 
 
 # Get the atomic coordinates
-$BIN/vp >| tmp.dat
-tail -$natom tmp.dat | awk '{printf "%s %12.8f %12.8f %12.8f \n", "#", $2, $3, $4}' >| tmp.dat2
+$BIN/vp >| $src/tmp.dat
+tail -$natom $src/tmp.dat | awk '{printf "%s %12.8f %12.8f %12.8f \n", "#", $2, $3, $4}' >| $src/tmp.dat2
 
 
 # Total is first DOS
@@ -118,7 +119,7 @@ start=7
 end=$((start+nl-1))
 #echo $start $end
 #exit 0
-rm -f DOS0
+rm -f $src/DOS0
 if [ $form -eq 1 ]; then
 
     while [ $i -le $natom ]; do
@@ -126,25 +127,30 @@ if [ $form -eq 1 ]; then
 #s    	echo $i $start $end
 
 	if [ $i -gt 0 ]; then
-	    sed -n ''$i' p' tmp.dat2 >| DOS$i
+	    sed -n ''$i' p' $src/tmp.dat2 >| $src/DOS$i
 	fi
 
 	if [ $i -gt 0 ]; then
 
 # Atomic projected DOS
 	    if [ $nspin -eq 2 ]; then
-		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, -1*$3, $4, -1*$5, $6, -1*$7}' >> DOS$i
+		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f
+    %12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, -1*$3, $4, -1*$5,
+    $6, -1*$7}' >> $src/DOS$i
 	    else
-		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, $3, $4 }' >> DOS$i
+		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f
+    %12.8f \n", $1+(-1)*'$efermi', $2, $3, $4 }' >> $src/DOS$i
 	    fi		
 
 	else
 
 # Total DOS
 	    if [ $nspin -eq 2 ]; then
-		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, -1*$3, $4, -1*$5 }' >> DOS$i
+		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f
+    %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, -1*$3, $4, -1*$5 }' >> $src/DOS$i
 	    else
-		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, $3 }' >> DOS$i
+		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f
+    \n", $1+(-1)*'$efermi', $2, $3 }' >> $src/DOS$i
 	    fi
 
         fi
@@ -161,25 +167,30 @@ elif [ $form -eq 0 ];then
 #    	echo $i $start $end
 
 	if [ $i -gt 0 ]; then
-	    sed -n ''$i' p' tmp.dat2 >| DOS$i
+	    sed -n ''$i' p' $src/tmp.dat2 >| $src/DOS$i
 	fi
 
 	if [ $i -gt 0 ]; then
 
 # Atomic projected DOS
 	    if [ $nspin -eq 2 ]; then
-		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, -1*$3, $4, -1*$5, $6, -1*$7}' >> DOS$i
+		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f
+    %12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, -1*$3, $4, -1*$5,
+    $6, -1*$7}' >> $src/DOS$i
 	    else
-		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, $3, $4 }' >> DOS$i
+		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f
+    %12.8f \n", $1+(-1)*'$efermi', $2, $3, $4 }' >> $src/DOS$i
 	    fi		
 
 	else
 
 # Total DOS
 	    if [ $nspin -eq 2 ]; then
-		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, -1*$3, $4, -1*$5 }' >> DOS$i
+		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f
+    %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, -1*$3, $4, -1*$5 }' >> $src/DOS$i
 	    else
-		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, $3 }' >> DOS$i
+		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f
+    \n", $1+(-1)*'$efermi', $2, $3 }' >> $src/DOS$i
 	    fi
 
         fi
@@ -196,25 +207,29 @@ elif [ $form -eq 2 ];then
 #    	echo $i $start $end
 
 	if [ $i -gt 0 ]; then
-	    sed -n ''$i' p' tmp.dat2 >| DOS$i
+	    sed -n ''$i' p' $src/tmp.dat2 >| $src/DOS$i
 	fi
 
 	if [ $i -gt 0 ]; then
 
 # Atomic projected DOS
-	    if [ $nspin -eq 2 ]; then
-		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, -1*$3, $4, -1*$5, $6, -1*$7,$8,-1*$9,$10,-1*$11,$12,-1*$13,$14,-1*$15,$16,-1*$17,$18,-1*$19}' >> DOS$i
+if [ $nspin -eq 2 ]; then
+sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8 
+%12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, -1*$3, $4, -1*$ 
+$6, -1*$7,$8,-1*$9,$10,-1*$11,$12,-1*$13,$14,-1*$15,$16,-1*$17,$18,-1*$19}' >> $src/DOS$i
 	    else
-		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, $3, $4,$5,$6,$7,$8,$9,$10 }' >> DOS$i
+		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, $3, $4,$5,$6,$7,$8,$9,$10 }' >> $src/DOS$i
 	    fi		
 
 	else
 
 # Total DOS
 	    if [ $nspin -eq 2 ]; then
-		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, -1*$3, $4, -1*$5 }' >> DOS$i
+		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f
+    %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, -1*$3, $4, -1*$5 }' >> $src/DOS$i
 	    else
-		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f \n", $1+(-1)*'$efermi', $2, $3 }' >> DOS$i
+		sed -n ''$start','$end' p' $dosfile | awk '{printf "%12.8f %12.8f %12.8f
+    \n", $1+(-1)*'$efermi', $2, $3 }' >> $src/DOS$i
 	    fi
 
         fi
