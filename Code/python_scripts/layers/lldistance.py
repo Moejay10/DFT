@@ -145,7 +145,7 @@ def graphite(src, dst, scale):
 
              
     layer = 2
-    old_file = src + "POSCAR_0"
+    old_file = src + "CONTCAR"
     num_lines_to_change = 12
 
     N = 2
@@ -215,8 +215,8 @@ def graphite(src, dst, scale):
                 e = (pieces[4])
                 f = (pieces[5])
 
-                c += (scale*i)/2
-                c = float("{:.10f}".format(c))
+                #c += (scale*i)/2
+                #c = float("{:.10f}".format(c))
 
                 lines_read[j] = "     " + a + "         " + b + "         " + str(c) + " " + d + " " + e + " " + f + "\n"
 
