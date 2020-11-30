@@ -145,7 +145,7 @@ def graphite(src, dst, scale):
 
              
     layer = 2
-    old_file = src + "POSCAR_01"
+    old_file = src + "POSCAR_0"
     num_lines_to_change = 12
 
     N = 2
