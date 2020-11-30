@@ -1,6 +1,5 @@
 Total energy (eV)	F	E0
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_0/Etot/OUTCAR	-36.23547352	-36.23547352
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_10/Etot/OUTCAR	-36.19786071	-36.19786071
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_1/Etot/OUTCAR	-36.35778405	-36.35778405
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_2/Etot/OUTCAR	-36.35512930	-36.35512930
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_3/Etot/OUTCAR	-36.35097074	-36.35097074
@@ -10,3 +9,4 @@ Total energy (eV)	F	E0
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_7/Etot/OUTCAR	-36.29666508	-36.29666508
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_8/Etot/OUTCAR	-36.27403632	-36.27403632
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_9/Etot/OUTCAR	-36.23947588	-36.23947588
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_10/Etot/OUTCAR	-36.19786071	-36.19786071
