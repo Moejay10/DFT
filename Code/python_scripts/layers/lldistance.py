@@ -26,8 +26,18 @@ def main():
     src = str(walk_up_folder(os.getcwd(), 4)) + "/Data/Layer/L_L_distance/" + args.input + "/POSCARS/" 
     
     if args.input == 'BaSi2':
+        construct_POSCAR(src, basi2, args.output, args.scale)
+
+    elif args.input == 'Graphite':
+        construct_POSCAR(src, graphite, args.output, args.scale)
+    
+    else:
+        print("Wrong command line argument. Input must either be 'BaSi2' or 'Graphite'.")
+
+def construct_POSCAR(src, func, output, scale):
+        
         folders = ["/DFT-D3/", "/PBE/", "/LDA/", "/rev-vdW-DF2/", "/vdW-opt88/"]
-        dst = src + "outputFiles/" + args.output 
+        dst = src + "outputFiles/" + output 
         src = src + "inputFiles/"
         
         for folder in folders:
@@ -37,16 +47,8 @@ def main():
             if not os.path.isdir(dst1):
                 os.makedirs(dst1)
 
-            basi2(src1, dst1, args.scale)
+            func(src1, dst1, scale)
 
-    else:
-        dst = src + args.output
-
-        if not os.path.isdir(dst):
-            os.makedirs(dst)
-        
-        graphite(src, dst, args.scale)
-    
 
 def walk_up_folder(path, depth=1):
     _cur_depth = 1
@@ -59,7 +61,7 @@ def walk_up_folder(path, depth=1):
 def basi2(src, dst, scale):
          
     layer = 2
-    old_file = src + "POSCAR_0"
+    old_file = src + "CONTCAR"
     num_lines_to_change = 12
 
     N = 2
