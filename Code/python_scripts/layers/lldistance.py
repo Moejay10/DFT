@@ -61,7 +61,7 @@ def walk_up_folder(path, depth=1):
 def basi2(src, dst, scale):
          
     layer = 2
-    old_file = src + "CONTCAR"
+    old_file = src + "POSCAR"
     num_lines_to_change = 12
 
     N = 2
@@ -132,8 +132,8 @@ def basi2(src, dst, scale):
                 e = (pieces[4])
                 f = (pieces[5])
 
-                a += (scale*i)/2
-                a = float("{:.10f}".format(a))
+                #a += (scale*i)/2
+                #a = float("{:.10f}".format(a))
 
                 lines_read[j] = "     " + str(a) + "         " + b + "         " + c + " " + d + " " + e + " " + f + "\n"
                 count += 1
