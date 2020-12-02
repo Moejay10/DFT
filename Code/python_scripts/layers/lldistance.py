@@ -114,7 +114,29 @@ def basi2(src, dst, scale):
                 continue
         """
 
+        
+        with open(new_file) as file:
+            lines = file.readlines()
+            #Skip the first two lines
+            for j in range(2,3):
+                line = lines[j]
+                pieces = line.split()
+                old = pieces[0]
+                new = float(pieces[0]) + scale*i
+            
+            new = format(new, '.16f')
+        
+        with open(new_file,"r") as f:
+            newline=[]
+            for word in f.readlines():
+                newline.append(word.replace(old,new))
 
+
+        with open(new_file,"w") as f:
+            for line in newline:
+                f.writelines(line)
+
+        """ 
 
         the_file = open(new_file, "r")
         lines_read = the_file.readlines()
@@ -142,6 +164,7 @@ def basi2(src, dst, scale):
         the_file = open(new_file, "w")
         the_file.writelines(lines_read)
         the_file.close()
+        """
 
 def graphite(src, dst, scale):
 
@@ -177,24 +200,23 @@ def graphite(src, dst, scale):
 
         #print("\nFile copy done!\n")
         
-        c = 0
         with open(new_file) as file:
             lines = file.readlines()
             #Skip the first two lines
             for j in range(4,5):
                 line = lines[j]
                 pieces = line.split()
-                a = pieces[2]
-                c = float(pieces[2]) + scale*i
+                old = pieces[2]
+                new = float(pieces[2]) + scale*i
 
-            c = float("{:.10f}".format(c))
-            c = str(c)
+            new = format(new, '.16f')
+            new = str(new)
         
         
         with open(new_file,"r") as f:
             newline=[]
             for word in f.readlines():
-                newline.append(word.replace(a,c))
+                newline.append(word.replace(old,new))
 
 
         with open(new_file,"w") as f:
@@ -202,7 +224,7 @@ def graphite(src, dst, scale):
                 f.writelines(line)
 
         
-
+        """
         the_file = open(new_file, "r")
         lines_read = the_file.readlines()
         N = len(lines_read)
@@ -226,6 +248,7 @@ def graphite(src, dst, scale):
         the_file = open(new_file, "w")
         the_file.writelines(lines_read)
         the_file.close()
+        """
 
 
 if __name__ == '__main__':
