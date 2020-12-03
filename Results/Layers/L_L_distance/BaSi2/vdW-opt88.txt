@@ -1,18 +1,15 @@
 Total energy (eV)	F	E0
-2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_0/Etot/OUTCAR	-107.62727148	-107.62727148
 2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_10/Etot/OUTCAR	-106.86433300	-106.86433300
-2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_1/Etot/OUTCAR	-107.66575994	-107.66575994
-2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_2/Etot/OUTCAR	-107.68265462	-107.68265462
-2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_3/Etot/OUTCAR	-107.67777301	-107.67777301
-2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_4/Etot/OUTCAR	-107.64795347	-107.64795347
-2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_5/Etot/OUTCAR	-107.59067959	-107.59067959
-2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_6/Etot/OUTCAR	-107.50770565	-107.50770565
-2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_7/Etot/OUTCAR	-107.39549231	-107.39549231
-2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_8/Etot/OUTCAR	-107.25214282	-107.25214282
 2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_9/Etot/OUTCAR	-107.07556242	-107.07556242
-Total energy (eV)	F	E0
+2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_8/Etot/OUTCAR	-107.25214282	-107.25214282
+2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_7/Etot/OUTCAR	-107.39549231	-107.39549231
+2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_6/Etot/OUTCAR	-107.50770565	-107.50770565
+2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_5/Etot/OUTCAR	-107.59067959	-107.59067959
+2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_4/Etot/OUTCAR	-107.64795347	-107.64795347
+2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_3/Etot/OUTCAR	-107.67777301	-107.67777301
+2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_2/Etot/OUTCAR	-107.68265462	-107.68265462
+2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_1/Etot/OUTCAR	-107.66575994	-107.66575994
 2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_0/Etot/OUTCAR	-107.62727148	-107.62727148
-2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_10/Etot/OUTCAR	-106.34131264	-106.34131264
 2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_1/Etot/OUTCAR	-107.56859858	-107.56859858
 2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_2/Etot/OUTCAR	-107.49148407	-107.49148407
 2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_3/Etot/OUTCAR	-107.39721115	-107.39721115
@@ -22,3 +19,4 @@ Total energy (eV)	F	E0
 2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_7/Etot/OUTCAR	-106.86802646	-106.86802646
 2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_8/Etot/OUTCAR	-106.70288745	-106.70288745
 2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_9/Etot/OUTCAR	-106.52825589	-106.52825589
+2D_Layers/L_L_distance/vdW-opt88/BaSi2/a_10/Etot/OUTCAR	-106.34131264	-106.34131264
