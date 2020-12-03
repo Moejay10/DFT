@@ -1,22 +1,24 @@
 Total energy (eV)	F	E0
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_10/Etot/OUTCAR -36.14401174 -36.14401174
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_9/Etot/OUTCAR	-36.19645771	-36.19645771
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_8/Etot/OUTCAR	-36.23927035	-36.23927035
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_7/Etot/OUTCAR	-36.27462113	-36.27462113
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_6/Etot/OUTCAR	-36.29895376	-36.29895376
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_5/Etot/OUTCAR	-36.31947226	-36.31947226
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_4/Etot/OUTCAR	-36.33521923	-36.33521923
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_3/Etot/OUTCAR	-36.34725359	-36.34725359
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_2/Etot/OUTCAR	-36.35491947	-36.35491947
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_1/Etot/OUTCAR	-36.35955981	-36.35955981
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_0/Etot/OUTCAR	-36.36237121	-36.36237121
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_10/Etot/OUTCAR	-34.59382022	-34.59381708
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_1/Etot/OUTCAR	-36.35491947	-36.35491947
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_2/Etot/OUTCAR	-36.33521923	-36.33521923
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_3/Etot/OUTCAR	-36.29895376	-36.29895376
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_4/Etot/OUTCAR	-36.23927035	-36.23927035
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_5/Etot/OUTCAR	-36.14401175	-36.14401175
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_6/Etot/OUTCAR	-36.00353639	-36.00353639
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_7/Etot/OUTCAR	-35.80350008	-35.80350008
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_8/Etot/OUTCAR	-35.51642879	-35.51642879
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_9/Etot/OUTCAR	-35.12172514	-35.12158677
+Total energy (eV)	F	E0
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_0/Etot/OUTCAR	-36.36237121	-36.36237121
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_10/Etot/OUTCAR	-36.24088985	-36.24088985
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_1/Etot/OUTCAR	-36.35784001	-36.35784001
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_2/Etot/OUTCAR	-36.35091981	-36.35091981
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_3/Etot/OUTCAR	-36.33947869	-36.33947869
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_4/Etot/OUTCAR	-36.32779696	-36.32779696
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_5/Etot/OUTCAR	-36.31128253	-36.31128253
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_5/Etot/OUTCAR	-36.31128254	-36.31128254
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_6/Etot/OUTCAR	-36.29604312	-36.29604312
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_7/Etot/OUTCAR	-36.28034672	-36.28034672
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_8/Etot/OUTCAR	-36.26584099	-36.26584099
+2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_8/Etot/OUTCAR	-36.26584096	-36.26584096
 2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_9/Etot/OUTCAR	-36.25340599	-36.25340599
-2D_Layers/L_L_distance/rev-vdW-DF2/Graphite/a_10/Etot/OUTCAR -36.24088985	-36.24088985
