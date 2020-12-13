@@ -61,7 +61,7 @@ def walk_up_folder(path, depth=1):
 def basi2(src, dst, scale):
          
     layer = 2
-    old_file = src + "POSCAR"
+    old_file = src + "CONTCAR"
     num_lines_to_change = 12
 
     N = 2
