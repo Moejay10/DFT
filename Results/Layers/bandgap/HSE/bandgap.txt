@@ -1,5 +1,7 @@
 Gap	Band#	VBM	CBM	VBM-occ	CBM-occ	File
-  1.1669   72   3.3787   4.5456    2.00    0.00 2D_Layers/Layers/Bulk/HSE/Band_structure/OUTCAR
   1.1246   72   3.3785   4.5031    2.00    0.00 2D_Layers/Layers/Bulk/HSE/band_structure2/OUTCAR
+  1.1669   72   3.3787   4.5456    2.00    0.00 2D_Layers/Layers/Bulk/HSE/Band_structure/OUTCAR
   1.3202   72  -0.9288   0.3914    2.00    0.00 2D_Layers/Layers/L2/HSE/Band_structure/OUTCAR
   1.4057  108  -0.4276   0.9781    2.00    0.00 2D_Layers/Layers/L3/HSE/Band_structure/OUTCAR
+  1.3532  144   0.0846   1.4378    2.00    0.00 2D_Layers/Layers/L4/HSE/Band_structure/OUTCAR
+  1.3008  180   0.5111   1.8119    2.00    0.00 2D_Layers/Layers/L5/HSE/Band_structure/OUTCAR
