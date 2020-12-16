@@ -1,0 +1,9 @@
+Total energy (eV)	F	E0
+Bulk_analysis/BaGe2/Convergence/ktest/k_density2/OUTCAR	-97.65917610	-97.65917610
+Bulk_analysis/BaGe2/Convergence/ktest/k_density3/OUTCAR	-97.82278615	-97.82278615
+Bulk_analysis/BaGe2/Convergence/ktest/k_density4/OUTCAR	-97.80176570	-97.80176570
+Bulk_analysis/BaGe2/Convergence/ktest/k_density5/OUTCAR	-97.80100321	-97.80100321
+Bulk_analysis/BaGe2/Convergence/ktest/k_density6/OUTCAR	-97.80111895	-97.80111895
+Bulk_analysis/BaGe2/Convergence/ktest/k_density7/OUTCAR	-97.80113110	-97.80113110
+Bulk_analysis/BaGe2/Convergence/ktest/k_density8/OUTCAR	-97.80113156	-97.80113156
+Bulk_analysis/BaGe2/Convergence/ktest/k_density9/OUTCAR	-97.80112783	-97.80112783

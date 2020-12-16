@@ -1,0 +1,10 @@
+Total energy (eV)	F	E0
+Total energy (eV)	F	E0
+Bulk_analysis/SrSi2/Convergence/ktest/k_density2/OUTCAR	-106.65986719	-106.65986719
+Bulk_analysis/SrSi2/Convergence/ktest/k_density3/OUTCAR	-106.94407511	-106.94407511
+Bulk_analysis/SrSi2/Convergence/ktest/k_density4/OUTCAR	-106.91005127	-106.91005127
+Bulk_analysis/SrSi2/Convergence/ktest/k_density5/OUTCAR	-106.91644421	-106.91644421
+Bulk_analysis/SrSi2/Convergence/ktest/k_density6/OUTCAR	-106.91549784	-106.91549784
+Bulk_analysis/SrSi2/Convergence/ktest/k_density7/OUTCAR	-106.91570486	-106.91570486
+Bulk_analysis/SrSi2/Convergence/ktest/k_density8/OUTCAR	-106.91568260	-106.91568260
+Bulk_analysis/SrSi2/Convergence/ktest/k_density9/OUTCAR	-106.91568995	-106.91568995

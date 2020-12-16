@@ -1,0 +1,8 @@
+Total energy (eV)	F	E0
+Bulk_analysis/BaSi2/Convergence/ktest/k_density2/OUTCAR	-110.70236670	-110.70236670
+Bulk_analysis/BaSi2/Convergence/ktest/k_density4/OUTCAR	-110.81048348	-110.81048348
+Bulk_analysis/BaSi2/Convergence/ktest/k_density5/OUTCAR	-110.80788648	-110.80788648
+Bulk_analysis/BaSi2/Convergence/ktest/k_density6/OUTCAR	-110.80841668	-110.80841668
+Bulk_analysis/BaSi2/Convergence/ktest/k_density7/OUTCAR	-110.80836155	-110.80836155
+Bulk_analysis/BaSi2/Convergence/ktest/k_density8/OUTCAR	-110.80836624	-110.80836624
+Bulk_analysis/BaSi2/Convergence/ktest/k_density9/OUTCAR	-110.80836269	-110.80836269
