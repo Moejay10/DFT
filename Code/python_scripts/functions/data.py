@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import os
 
 
@@ -37,9 +38,10 @@ def readEnergyFromFile(filepaths, filenames):
 
         data[filenames[j]] = np.array(etot)
         j += 1
-
-
-    return data
+    
+    df = pd.DataFrame({ key:pd.Series(value) for key, value in data.items() })
+    
+    return df
 
 
 
