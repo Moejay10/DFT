@@ -1,0 +1,6 @@
+Total energy (eV)	F	E0
+Bulk_analysis/BaSi2/DFT-D3/Etot/OUTCAR	-114.56774032	-114.56774032
+Bulk_analysis/BaSi2/LDA/Etot/OUTCAR	-122.51397371	-122.51397371
+Bulk_analysis/BaSi2/PBE/Etot/OUTCAR	-110.81594780	-110.81594780
+Bulk_analysis/BaSi2/rev-vdW-DF2/Etot/OUTCAR	-97.45073074	-97.45073074
+Bulk_analysis/BaSi2/vdW-opt88/Etot/OUTCAR	-100.14932966	-100.14932966
