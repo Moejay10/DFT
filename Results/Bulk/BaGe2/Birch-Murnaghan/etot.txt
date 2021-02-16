@@ -1,0 +1,12 @@
+Total energy (eV)	F	E0
+BaGe2/rev-vdW-DF2/Birch-Murnaghan/a_0/OUTCAR	-85.59630927	-85.59630927
+BaGe2/rev-vdW-DF2/Birch-Murnaghan/a_-1/OUTCAR	-85.58963461	-85.58963461
+BaGe2/rev-vdW-DF2/Birch-Murnaghan/a_1/OUTCAR	-85.59140532	-85.59140532
+BaGe2/rev-vdW-DF2/Birch-Murnaghan/a_-2/OUTCAR	-85.57024339	-85.57024339
+BaGe2/rev-vdW-DF2/Birch-Murnaghan/a_2/OUTCAR	-85.57576563	-85.57576563
+BaGe2/rev-vdW-DF2/Birch-Murnaghan/a_-3/OUTCAR	-85.53779669	-85.53779669
+BaGe2/rev-vdW-DF2/Birch-Murnaghan/a_3/OUTCAR	-85.55408705	-85.55408705
+BaGe2/rev-vdW-DF2/Birch-Murnaghan/a_-4/OUTCAR	-85.49195005	-85.49195005
+BaGe2/rev-vdW-DF2/Birch-Murnaghan/a_4/OUTCAR	-85.51825939	-85.51825939
+BaGe2/rev-vdW-DF2/Birch-Murnaghan/a_-5/OUTCAR	-85.43230700	-85.43230700
+BaGe2/rev-vdW-DF2/Birch-Murnaghan/a_5/OUTCAR	-85.47256917	-85.47256917
