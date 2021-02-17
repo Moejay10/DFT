@@ -1,0 +1,12 @@
+Total energy (eV)	F	E0
+SrSi2/vdW-opt88/Birch-Murnaghan/a_0/OUTCAR	-96.26808282	-96.26808282
+SrSi2/vdW-opt88/Birch-Murnaghan/a_-1/OUTCAR	-96.25539777	-96.25539777
+SrSi2/vdW-opt88/Birch-Murnaghan/a_1/OUTCAR	-96.26743537	-96.26743537
+SrSi2/vdW-opt88/Birch-Murnaghan/a_-2/OUTCAR	-96.22883518	-96.22883518
+SrSi2/vdW-opt88/Birch-Murnaghan/a_2/OUTCAR	-96.25402635	-96.25402635
+SrSi2/vdW-opt88/Birch-Murnaghan/a_-3/OUTCAR	-96.18787926	-96.18787926
+SrSi2/vdW-opt88/Birch-Murnaghan/a_3/OUTCAR	-96.22895538	-96.22895538
+SrSi2/vdW-opt88/Birch-Murnaghan/a_-4/OUTCAR	-96.13130417	-96.13130417
+SrSi2/vdW-opt88/Birch-Murnaghan/a_4/OUTCAR	-96.19253054	-96.19253054
+SrSi2/vdW-opt88/Birch-Murnaghan/a_-5/OUTCAR	-96.05911509	-96.05911509
+SrSi2/vdW-opt88/Birch-Murnaghan/a_5/OUTCAR	-96.14519794	-96.14519794
