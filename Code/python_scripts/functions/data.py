@@ -82,3 +82,38 @@ if __name__ == '__main__':
     keys = list(tmp_dic.keys())
     print(tmp_dic[keys[0]])
 
+
+
+def read_bond_lengths(file):
+    
+    string = 'nearest'
+    tmp = ''
+    counter = 0
+    empty_counter = 0
+    with open(file, "r") as f:
+        lines = f.readlines()
+        N = len(lines)
+        for line in lines:
+            counter += 1
+            words = line.split()
+            if words == []:
+                empty_counter += 1
+            for word in words:
+                if word == string:
+                    start = counter
+                    #print("Start line: " + str(start))
+                    tmp = "Start"
+
+
+
+                if word == 'LATTYP:' and tmp == 'Start':
+                    end = counter
+                    #print("Stop line: " + str(end))
+                    break
+    
+    
+    l = list(np.arange(0, start-1)) + list(np.arange(end-1, N)) 
+
+    df = pd.read_table(file, skiprows=l, sep='\n')
+    
+    return l
