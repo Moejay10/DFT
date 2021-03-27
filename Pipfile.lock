@@ -255,7 +255,7 @@
             "hashes": [
                 "sha256:c05834dbae2c19df02ff19d10f9ebcadcd9ea11c3157d07b463a66c284c82f1c"
             ],
-            "path": "./../pymatgen/dist/pymatgen-2022.0.4.tar.gz",
+            "path": "Code/pymatgen/pymatgen-2022.0.4.tar.gz",
             "version": "==2022.0.4"
         },
         "pyparsing": {
