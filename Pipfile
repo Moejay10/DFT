@@ -12,6 +12,7 @@ seaborn = "*"
 tqdm = "*"
 jupyter = "*"
 ase = "*"
+sumo = "*"
 
 [dev-packages]
 
