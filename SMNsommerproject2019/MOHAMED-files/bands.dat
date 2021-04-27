@@ -1,0 +1,12 @@
+#!/bin/bash -l
+#SBATCH --job-name=myrun 
+#SBATCH -A snic2018-3-370 
+#SBATCH -e error_file.e 
+#SBATCH -o output_file.o 
+#SBATCH --ntasks-per-node=32 
+#SBATCH --nodes=4 
+#SBATCH --time=48:00:00 
+cd /home/x_konio/HYBRIDS-DOS/NEW-ks-Cu2ZnSnS4-PRIMITIVE/HSE
+module load mpprun/4.0 
+module add VASP/5.4.4.16052018-nsc2-intel-2018a-eb 
+mpprun vasp_std
