@@ -7,12 +7,14 @@ name = "pypi"
 matplotlib = "*"
 pandas = "*"
 regex = "*"
-pymatgen = {path = "Code/pymatgen/pymatgen-2022.0.4.tar.gz"}
+pymatgen = {path = "./Code/pymatgen/pymatgen-2022.0.4.tar.gz"}
 seaborn = "*"
 tqdm = "*"
 jupyter = "*"
 ase = "*"
 sumo = "*"
+bigfloat = "*"
+chart-studio = "*"
 
 [dev-packages]
 
