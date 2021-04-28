@@ -701,6 +701,7 @@
         "pymatgen": {
             "hashes": [
                 "sha256:8a778b7a8b70f31ca50ab8d814556c3cf95c32830e6b4bcd5242329687cce33c",
+                "sha256:aced98e6bec0d6837d774b454d6ef7ec228e1890b700ff3f2fd113b954a9da72",
                 "sha256:c05834dbae2c19df02ff19d10f9ebcadcd9ea11c3157d07b463a66c284c82f1c"
             ],
             "path": "./Code/pymatgen/pymatgen-2022.0.4.tar.gz",
