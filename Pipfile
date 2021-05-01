@@ -16,6 +16,7 @@ sumo = "*"
 bigfloat = "*"
 chart-studio = "*"
 kaleido = "*"
+ipywidgets = "*"
 
 [dev-packages]
 
