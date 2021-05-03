@@ -713,17 +713,20 @@
         },
         "pygments": {
             "hashes": [
-                "sha256:2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94",
-                "sha256:534ef71d539ae97d4c3a4cf7d6f110f214b0e687e92f9cb9d2a3b0d3101289c8"
+                "sha256:a18f47b506a429f6f4b9df81bb02beab9ca21d0a5fee38ed15aef65f0545519f",
+                "sha256:d66e804411278594d764fc69ec36ec13d9ae9147193a1740cd34d272ca383b8e"
             ],
             "markers": "python_version >= '3.5'",
-            "version": "==2.8.1"
+            "version": "==2.9.0"
         },
         "pymatgen": {
             "hashes": [
+                "sha256:038726e7fa2128b2c73f24d3bf6f7c5814269f82c6a7ac199e5b88af3c078978",
+                "sha256:87bb7d1394aeda6d40b930adf10fad9d9e712c427f9850554ddeb4a49a7f0145",
                 "sha256:8a778b7a8b70f31ca50ab8d814556c3cf95c32830e6b4bcd5242329687cce33c",
                 "sha256:aced98e6bec0d6837d774b454d6ef7ec228e1890b700ff3f2fd113b954a9da72",
-                "sha256:c05834dbae2c19df02ff19d10f9ebcadcd9ea11c3157d07b463a66c284c82f1c"
+                "sha256:c05834dbae2c19df02ff19d10f9ebcadcd9ea11c3157d07b463a66c284c82f1c",
+                "sha256:e479fa674307b3eb01e6862314adc596e6a24da079dfe5b28b9461cbfe1fe685"
             ],
             "path": "./Code/pymatgen/pymatgen-2022.0.4.tar.gz",
             "version": "==2022.0.4"
@@ -833,11 +836,11 @@
         },
         "qtconsole": {
             "hashes": [
-                "sha256:4a38053993ca2da058f76f8d75b3d8906efbf9183de516f92f222ac8e37d9614",
-                "sha256:c091a35607d2a2432e004c4a112d241ce908086570cf68594176dd52ccaa212d"
+                "sha256:12c734494901658787339dea9bbd82f3dc0d5e394071377a1c77b4a0954d7d8b",
+                "sha256:3a2adecc43ff201a08972fb2179df22e7b3a08d71b9ed680f46ad1bfd4fb9132"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==5.0.3"
+            "version": "==5.1.0"
         },
         "qtpy": {
             "hashes": [
