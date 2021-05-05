@@ -722,10 +722,12 @@
         "pymatgen": {
             "hashes": [
                 "sha256:038726e7fa2128b2c73f24d3bf6f7c5814269f82c6a7ac199e5b88af3c078978",
+                "sha256:4cbd2b4ea4b66b861c94ced436a2358ca760921a7a8f8182c642b1ef81fe580e",
                 "sha256:87bb7d1394aeda6d40b930adf10fad9d9e712c427f9850554ddeb4a49a7f0145",
                 "sha256:8a778b7a8b70f31ca50ab8d814556c3cf95c32830e6b4bcd5242329687cce33c",
                 "sha256:aced98e6bec0d6837d774b454d6ef7ec228e1890b700ff3f2fd113b954a9da72",
                 "sha256:c05834dbae2c19df02ff19d10f9ebcadcd9ea11c3157d07b463a66c284c82f1c",
+                "sha256:d37ce23704e83db611f653f76038281c47241a46dcb9a46032bc7961ded535d7",
                 "sha256:e479fa674307b3eb01e6862314adc596e6a24da079dfe5b28b9461cbfe1fe685"
             ],
             "path": "./Code/pymatgen/pymatgen-2022.0.4.tar.gz",
