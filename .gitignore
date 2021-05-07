@@ -1,6 +1,7 @@
 # Specific files
 vasprun.xml
 .pgf # All figures from the notebook
+.pdf # All figures from the notebook
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
