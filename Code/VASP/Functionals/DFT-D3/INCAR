@@ -1,0 +1,37 @@
+!INCAR for ionic relaxation
+
+! Electronic relaxation
+!ALGO   = Fast      ! Algorithm for electronic relaxation
+!NELMIN = 4         ! Minimum # of electronic steps
+!PREC   = Accurate  ! Low/Normal/Accurate
+NELM   = 100
+EDIFF  = 1E-6       ! Accuracy for electronic groundstate
+ENCUT  = 500        ! Cut-off energy for plane wave expansion
+LREAL  = Auto       ! Projection in reciprocal space?
+ISMEAR = -5         ! Smearing of partial occupancies.
+SIGMA  = 0.01       ! Smearing width
+!ISPIN  = 1         ! Spin polarization?
+POTIM = 0.5
+!NCORE= 4
+
+! Ionic relaxation
+NSW    = 200          ! Max # of ionic steps
+EDIFFG = -1E-2        ! Tolerance for ions
+!MAXMIX = 80          ! Keep dielectric function between ionic movements
+IBRION = 2            ! Algorithm for ions. 0: MD 1: QN/DIIS 2: CG
+ISIF   = 3            ! Relaxation. 2: ions 3: ions+cell
+!ADDGRID= .TRUE.      ! More accurate forces with PAW
+
+
+
+! Output options
+LWAVE  = T            ! Write WAVECAR?
+LCHARG = T            ! Write CHGCAR
+!NWRITE = 1           ! Write electronic convergence at first step only
+
+! Memory handling
+NPAR    = 8           ! Should be = sqrt(cpus)
+KPAR= 2
+
+
+IVDW=11

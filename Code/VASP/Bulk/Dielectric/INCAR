@@ -1,0 +1,50 @@
+!INCAR for ionic relaxation
+
+! Electronic relaxation
+!ALGO   = Fast      ! Algorithm for electronic relaxation
+!NELMIN = 4         ! Minimum # of electronic steps
+!PREC   = Accurate  ! Low/Normal/Accurate
+NELM   = 100
+EDIFF  = 1E-6       ! Accuracy for electronic groundstate
+ENCUT  = 500        ! Cut-off energy for plane wave expansion
+LREAL  = Auto       ! Projection in reciprocal space?
+ISMEAR = -5          ! Smearing of partial occupancies. Equal to 0 for Band structure calculation.
+SIGMA  = 0.01       ! Smearing width
+!ISPIN  = 1         ! Spin polarization?
+POTIM = 0.3
+!NCORE= 4
+
+! Ionic relaxation
+NSW    =   0          ! Max # of ionic steps
+EDIFFG = -1E-2         ! Tolerance for ions
+!MAXMIX = 80          ! Keep dielectric function between ionic movements
+IBRION = -1            ! Algorithm for ions. 0: MD 1: QN/DIIS 2: CG
+!ISIF   = 3            ! Relaxation. 2: ions 3: ions+cell
+!ADDGRID= .TRUE.      ! More accurate forces with PAW
+
+! Dielectric options
+LOPTICS = .TRUE.      ! Calculates the frequency dependent dielectric matrix after the electronic ground state has ben determined.
+CSHIFT = 0.01
+NBANDS = 144
+
+! Output options
+LWAVE  = T            ! Write WAVECAR?
+LCHARG = T            ! Write CHGCAR
+!NWRITE = 1           ! Write electronic convergence at first step only
+NEDOS  = 10000        ! Number of grid points for DOS
+EMIN   = -40          ! Minimum energy for evaluation of DOS
+EMAX   =  100         ! Maximum energy for evaluation of DOS
+LORBIT = 11           ! Write LDOS to DOSCAR + PROCAR
+
+
+! Memory handling
+NPAR    = 8           ! Should be = sqrt(cpus)
+KPAR= 2
+
+GGA      = MK
+LUSE_VDW = .TRUE.
+PARAM1   = 0.1234
+PARAM2   = 0.711357
+Zab_vdW  = -1.8867
+AGGAC    = 0.0000
+LASPH = .TRUE.

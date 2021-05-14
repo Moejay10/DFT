@@ -1,0 +1,34 @@
+INCAR for hybrid functional, total energy calculation.
+
+! Electronic relaxation
+ISTART = 1        ! Read WAVECAR from previous SCF calculation
+ALGO   = Damped    ! Algorithm for electronic relaxation
+NELMIN = 4         ! Minimum # of electronic steps
+NELM   = 300       ! Maximum # of electronic steps
+EDIFF  = 1E-6      ! Accuracy for electronic groundstate
+ENCUT  = 500       ! Cut-off energy for plane wave expansion
+!PREC   = Normal    ! Low/Normal/Accurate
+LREAL  = Auto      ! Projection in reciprocal space?
+ISMEAR = 0         ! Smearing of partial occupancies.
+SIGMA  = 0.01      ! Smearing width
+!ISPIN  = 2         ! Spin polarization?
+LHFCALC = .TRUE.   ! Include Fock exchange
+HFSCREEN = 0.2     ! HSE06 hybrid functional
+TIME = 0.4
+SYMPREC = 1E-4     ! Ensure similar symmetry is found everywhere
+
+! Ionic relaxation
+NSW    = 0         ! Final high-accuracy calculation without relaxation
+EDIFFG = -1E-2
+
+! Output options
+LWAVE  = .TRUE.    ! Write WAVECAR?
+NEDOS  = 2801      ! Number of grid points for DOS
+EMIN   = -10        ! Minimum energy for evaluation of DOS
+EMAX   =  18       ! Maximum energy for evaluation of DOS
+!LELF   = .TRUE.    ! Electron localization function
+LORBIT = 11        ! Write LDOS to DOSCAR + PROCAR
+
+! Memory handling
+NPAR    = 8
+KPAR = 2
