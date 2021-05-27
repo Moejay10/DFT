@@ -1,14 +1,9 @@
-Total energy (eV)	F	E0
-Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=300/OUTCAR	-110.608942 -110.608942  
-Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=350/OUTCAR	-110.637627 -110.637627  
-Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=400/OUTCAR	-110.647046 -110.647046 
-Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=450/OUTCAR	-110.648458 -110.648458 
-Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=500/OUTCAR	-110.649914 -110.649914
-Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=550/OUTCAR	-110.652021 -110.652021 
-Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=600/OUTCAR	-110.654025 -110.654025 
-Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=650/OUTCAR	-110.655312 -110.655312  
-Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=700/OUTCAR	-110.655760 -110.655760  
-Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=750/OUTCAR	-110.656117 -110.656117  
-Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=800/OUTCAR	-110.656387 -110.656387  
-Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=850/OUTCAR	-110.656587 -110.656587  
-
+Total energy (eV)	      F	        E0
+Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=300/OUTCAR	-110.608942    -110.608942  
+Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=350/OUTCAR	-110.637627    -110.637627  
+Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=400/OUTCAR	-110.647046    -110.647046 
+Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=450/OUTCAR	-110.648458    -110.648458 
+Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=500/OUTCAR	-110.649914    -110.649914
+Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=550/OUTCAR	-110.652021    -110.652021 
+Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=600/OUTCAR	-110.654025    -110.654025 
+Bulk_analysis/BaSi2/Convergence/ENCUT/ENCUT=650/OUTCAR	-110.655312    -110.655312  
