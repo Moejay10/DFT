@@ -2,8 +2,7 @@
 This is the repository for the master work at the University of Oslo.
 
 ## Structure
-- Code
-This folder contains all of the code used for pre and post analysis of data
+- **Code**: This folder contains all of the code used for pre and post analysis of data
 concerning DFT calculations.
 
   - VASP
@@ -17,15 +16,13 @@ concerning DFT calculations.
     - .. (Contains scripts that were used in this project to construct and
       extract data)
 
-- Data
-This folder contains files for preparation of data, such as atom positions for DFT
+- **Data**: This folder contains files for preparation of data, such as atom positions for DFT
 calculations.
 
   - Layer
     - .. (All POSCAR files that were constructed regarding the 2D layered structures)
 
-- Results
-This folder contains all the results produced from the post analysis from the
+- **Results**: This folder contains all the results produced from the post analysis from the
 DFT calculations.
 
   - Bulk
