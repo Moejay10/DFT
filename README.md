@@ -12,7 +12,7 @@ concerning DFT calculations.
     - .. (Contains scripts that can be used in extracting data from VASP
       output files)
   - pymatgen
-    - .. (A python package that was used to plot the data from VASP output files \cite{pymatgen})
+    - .. (A python package that was used to plot the data from VASP output files $$\cite{pymatgen}$$)
   - python_scripts
     - .. (Contains scripts that were used in this project to construct and
       extract data)
