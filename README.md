@@ -12,7 +12,7 @@ concerning DFT calculations.
     - .. (Contains scripts that can be used in extracting data from VASP
       output files)
   - pymatgen
-    - .. (A python package that was used to plot the data from VASP output files $$\cite{pymatgen}$$)
+    - .. (A python package that was used to plot the data from VASP output files)
   - python_scripts
     - .. (Contains scripts that were used in this project to construct and
       extract data)
@@ -44,21 +44,17 @@ DFT calculations.
     - .. (Energy calculations from VASP that concerns the solid structures of
       the constituent atoms)
 
+## How to run the files
+To run the notebooks and the python scripts, one must utilize the virtual
+environment *pipenv*, therefore one must first install the package *pipenv*. 
+After installing *pipenv*, one must initialize the virtual environment, and this can be done by simply inputting:
+
+$ pipenv shell
+$ pipenv sync
+
+ 
 
 ## Resources:
-
-@article{pymatgen,
-title = {Python Materials Genomics (pymatgen): A robust, open-source python library for materials analysis},
-journal = {Computational Materials Science},
-volume = {68},
-pages = {314-319},
-year = {2013},
-issn = {0927-0256},
-doi = {https://doi.org/10.1016/j.commatsci.2012.10.028},
-url = {https://www.sciencedirect.com/science/article/pii/S0927025612006295},
-author = {Shyue Ping Ong and William Davidson Richards and Anubhav Jain and Geoffroy Hautier and Michael Kocher and Shreyas Cholia and Dan Gunter and Vincent L. Chevrier and Kristin A. Persson and Gerbrand Ceder},
-keywords = {Materials, Project, Design, Thermodynamics, High-throughput},
-}
 
 ### Links
 - https://pymatgen.org/
