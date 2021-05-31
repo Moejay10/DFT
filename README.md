@@ -1,5 +1,5 @@
 # Density Functional Theory
-This is the repository for the master work at the University of Oslo.
+This is the main repository for the master thesis of Mohamed Ismail (2021).
 
 ## Structure
 - **Code**: This folder contains all of the code used for pre and post analysis of data
@@ -40,6 +40,9 @@ DFT calculations.
   - solid_energy
     - .. (Energy calculations from VASP that concerns the solid structures of
       the constituent atoms)
+
+- **Report**: 
+  - Mohamed_Master_Thesis.pdf
 
 ## How to run the files
 To run the notebooks and the python scripts, one must utilize the virtual
