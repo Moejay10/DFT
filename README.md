@@ -47,7 +47,7 @@ DFT calculations.
 ## How to run the files
 To run the notebooks and the python scripts, one must utilize the virtual
 environment `pipenv`, therefore one must first install the package `pipenv`. 
-After installing $pipenv$, one must initialize the virtual environment, and this can be done by simply inputting:
+After installing `pipenv`, one must initialize the virtual environment, and this can be done by simply inputting:
 
 ```
 $ pipenv shell 
