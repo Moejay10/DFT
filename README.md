@@ -1,15 +1,65 @@
 # Density Functional Theory
 This is the repository for the master work at the University of Oslo.
 
-## Fall 2019
+## Structure
+- Code
+This folder contains all of the code used for pre and post analysis of data
+concerning DFT calculations.
 
-## Spring 2020
+  - VASP
+    - .. (Holds all the VASP input files that were used in the project)
+  - olem_scripts
+    - .. (Contains scripts that can be used in extracting data from VASP
+      output files)
+  - pymatgen
+    - .. (A python package that was used to plot the data from VASP output files \cite{pymatgen})
+  - python_scripts
+    - .. (Contains scripts that were used in this project to construct and
+      extract data)
 
-## Fall 2020
+- Data
+This folder contains files for preparation of data, such as atom positions for DFT
+calculations.
 
-## Spring 2021
+  - Layer
+    - .. (All POSCAR files that were constructed regarding the 2D layered structures)
+
+- Results
+This folder contains all the results produced from the post analysis from the
+DFT calculations.
+
+  - Bulk
+    - .. (All output files from VASP that concerns the bulk structures)
+  - Figures
+    - .. (All PDF's from the notebooks)
+  - Layers
+    - .. (All output files from VASP that concerns the 2D layered structures)
+  - Notebooks
+    - .. (This is where the jupyter notebooks are, where all the reusults are
+      displayed)
+  - atom_energy
+    - .. (Energy calculations from VASP that concerns the individual atoms of
+      the constituent atoms)
+  - solid_energy
+    - .. (Energy calculations from VASP that concerns the solid structures of
+      the constituent atoms)
+
 
 ## Resources:
+
+@article{pymatgen,
+title = {Python Materials Genomics (pymatgen): A robust, open-source python library for materials analysis},
+journal = {Computational Materials Science},
+volume = {68},
+pages = {314-319},
+year = {2013},
+issn = {0927-0256},
+doi = {https://doi.org/10.1016/j.commatsci.2012.10.028},
+url = {https://www.sciencedirect.com/science/article/pii/S0927025612006295},
+author = {Shyue Ping Ong and William Davidson Richards and Anubhav Jain and Geoffroy Hautier and Michael Kocher and Shreyas Cholia and Dan Gunter and Vincent L. Chevrier and Kristin A. Persson and Gerbrand Ceder},
+keywords = {Materials, Project, Design, Thermodynamics, High-throughput},
+}
+
 ### Links
 - https://pymatgen.org/
   - https://pymatgen.org/modules.html
